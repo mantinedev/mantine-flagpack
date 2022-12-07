@@ -5,17 +5,17 @@ export const ADFlag = createFlag(
   'AD',
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
     <defs>
-      <path id="a" d="M0 0h32v24H0z" />
+      <path id="mantine-foe0ofj9n" d="M0 0h32v24H0z" />
       <path
-        id="c"
+        id="mantine-9hy3frncy"
         d="M7.646.088v7.03c-.001.414-.22.71-.658.892a2.77 2.77 0 01-1.427.174c-.492-.106-.868-.106-1.128 0-.207.084-.377.14-.51.17v.017a.996.996 0 01-.046-.007l-.049.007v-.017a3.26 3.26 0 01-.51-.17c-.26-.106-.636-.106-1.128 0A2.77 2.77 0 01.763 8.01c-.438-.181-.657-.478-.658-.892V.088h7.54z"
       />
     </defs>
     <g fill="none" fillRule="evenodd">
-      <mask id="b" fill="#fff">
-        <use xlinkHref="#a" />
+      <mask id="mantine-5ujmk3c1r" fill="#fff">
+        <use xlinkHref="#mantine-foe0ofj9n" />
       </mask>
-      <g mask="url(#b)">
+      <g mask="url(#mantine-5ujmk3c1r)">
         <path fill="#FFD018" d="M8 0h16v24H8z" />
         <path fill="#2E42A5" d="M0 0h8v24H0z" />
         <path fill="#E31D1C" d="M24 0h8v24h-8z" />
@@ -29,11 +29,11 @@ export const ADFlag = createFlag(
           d="M12.11 15.998l.105-.254c1.208.517 2.582.777 4.124.777 1.541 0 2.879-.26 4.013-.776l.11.252c-1.17.533-2.545.8-4.123.8-1.576 0-2.986-.267-4.229-.8z"
         />
         <g transform="translate(12.373 7.144)">
-          <mask id="d" fill="#fff">
-            <use xlinkHref="#c" />
+          <mask id="mantine-fi1r4a2ak" fill="#fff">
+            <use xlinkHref="#mantine-9hy3frncy" />
           </mask>
-          <use fill="#BF9937" xlinkHref="#c" />
-          <g mask="url(#d)">
+          <use fill="#BF9937" xlinkHref="#mantine-9hy3frncy" />
+          <g mask="url(#mantine-fi1r4a2ak)">
             <path fill="#D00F3A" d="M0 0h3.656v3.9H0z" />
             <path
               fill="#FEDF00"
@@ -57,7 +57,7 @@ export const ADFlag = createFlag(
           <path
             fill="#D00F3A"
             d="M.813 4.333v4.045H.406V4.333h.406zm.812 0v4.045h-.406V4.333h.406zm.813 0v4.045H2.03V4.333h.406zm.812 0v4.045h-.406V4.333h.406zM5.01 0v4.044h-.406V0h.406zm.813 0v4.044h-.406V0h.406zm.812 0v4.044H6.23V0h.406zm.813 0v4.044h-.406V0h.406z"
-            mask="url(#d)"
+            mask="url(#mantine-fi1r4a2ak)"
           />
         </g>
       </g>
