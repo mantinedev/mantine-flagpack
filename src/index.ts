@@ -1,2 +1,4 @@
-export { TestComponent } from './TestComponent/TestComponent';
-export type { TestComponentProps } from './TestComponent/TestComponent';
+export * from './flags';
+export * from './countries-data';
+
+export type { FlagProps } from './create-flag';
