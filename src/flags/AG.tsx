@@ -4,10 +4,10 @@ import { createFlag } from '../create-flag';
 export const AGFlag = createFlag(
   'AG',
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
-    <mask id="mantine-81qv9g6eu" fill="#fff">
+    <mask id="mantine-u0lgd4z1w" fill="#fff">
       <path fillRule="evenodd" d="M0 0h32v24H0z" />
     </mask>
-    <g fill="none" fillRule="evenodd" mask="url(#mantine-81qv9g6eu)">
+    <g fill="none" fillRule="evenodd" mask="url(#mantine-u0lgd4z1w)">
       <path fill="#1b1b1b" d="M0 0h32v24H0z" />
       <path
         fill="#f9d313"

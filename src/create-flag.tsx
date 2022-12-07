@@ -17,7 +17,6 @@ export function createFlag(name: string, jsx: React.ReactElement) {
           (theme) => ({
             display: 'inline-block',
             overflow: 'hidden',
-            background: 'red',
             lineHeight: 1,
             width: size,
             borderRadius: theme.fn.radius(radius),
