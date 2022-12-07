@@ -39,12 +39,32 @@ const svgFlags = fs
   ]);
 
 const tsxTemplate = (name: string, svg: string) => `import React from 'react';
-import { createFlag } from '../create-flag';
+import { Box, packSx } from '@mantine/core';
+import type { FlagProps } from '../types';
 
-export const ${name}Flag = createFlag(
-  '${name}',
-  ${svg}
-);
+export function ${name}Flag({ size = 40, radius, sx, ...others }: FlagProps) {
+  return (
+    <Box
+      sx={[
+        (theme) => ({
+          display: 'inline-block',
+          overflow: 'hidden',
+          lineHeight: 1,
+          width: size,
+          borderRadius: theme.fn.radius(radius),
+
+          '& svg': {
+            display: 'block',
+          },
+        }),
+        ...packSx(sx),
+      ]}
+      {...others}
+    >
+      ${svg}
+    </Box>
+  );
+}
 `;
 
 let indexExports = '';
