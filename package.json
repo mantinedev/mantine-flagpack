@@ -4,6 +4,7 @@
   "description": "Template for Mantine extensions",
   "types": "./declarations/index.d.ts",
   "main": "./dist/index.js",
+  "sideEffects": "false",
   "exports": {
     "types": "./declarations/index.d.ts",
     "default": "./dist/index.js"
