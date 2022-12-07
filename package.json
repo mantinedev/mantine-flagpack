@@ -1,6 +1,6 @@
 {
   "name": "mantine-extension-template",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Template for Mantine extensions",
   "types": "./declarations/index.d.ts",
   "main": "./dist/index.js",
@@ -11,7 +11,6 @@
   "scripts": {
     "generate:components": "esno scripts/generate-components && npm run prettier:write && eslint src/flags --fix",
     "generate:svg": "esno scripts/generate-svg",
-    "prepare": "npm run docgen && cd docs && yarn",
     "docgen": "esno scripts/docgen/docgen",
     "nojekyll": "esno scripts/nojekyll",
     "docs": "cd docs && npm run dev",

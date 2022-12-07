@@ -12,3 +12,4 @@ node_modules/
 .yarn-integrity
 declarations
 dist
+.DS_Store
