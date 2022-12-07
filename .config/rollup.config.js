@@ -8,13 +8,10 @@ import replace from '@rollup/plugin-replace';
 
 export default {
   input: path.join(__dirname, '../src/index.ts'),
-  output: {
-    format: 'cjs',
-    externalLiveBindings: false,
-    preserveModules: true,
-    dir: path.join(__dirname, '../dist'),
-    sourcemap: 'inline',
-  },
+  output: [
+    { format: 'es', file: './dist/esm/index.js' },
+    { format: 'cjs', file: './dist/cjs/index.js' },
+  ],
   plugins: [
     commonjs(),
     nodeExternals(),

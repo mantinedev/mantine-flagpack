@@ -3,12 +3,15 @@
   "version": "0.0.14",
   "description": "Template for Mantine extensions",
   "types": "./declarations/index.d.ts",
-  "main": "./dist/index.js",
-  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "exports": {
-    "types": "./declarations/index.d.ts",
-    "default": "./dist/index.js"
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
   },
+  "sideEffects": false,
   "scripts": {
     "generate:components": "esno scripts/generate-components && npm run prettier:write && eslint src/flags --fix",
     "generate:svg": "esno scripts/generate-svg",
