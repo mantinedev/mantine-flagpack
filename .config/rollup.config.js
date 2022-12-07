@@ -9,7 +9,7 @@ import replace from '@rollup/plugin-replace';
 export default {
   input: path.join(__dirname, '../src/index.ts'),
   output: {
-    format: 'esm',
+    format: 'cjs',
     externalLiveBindings: false,
     preserveModules: true,
     dir: path.join(__dirname, '../dist'),

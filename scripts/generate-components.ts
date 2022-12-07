@@ -5,7 +5,10 @@ import { randomId } from '@mantine/hooks';
 const imagesFolder = path.join(__dirname, '../flags');
 const componentsFolder = path.join(__dirname, '../src/flags');
 
-const replacements = [['xmlns:xlink="http://www.w3.org/1999/xlink"', '']];
+const replacements = [
+  ['xmlns:xlink="http://www.w3.org/1999/xlink"', ''],
+  ['strokeLinejoin="square"', ''],
+];
 
 function replaceSvgCode(svgContent: string) {
   return replacements.reduce(

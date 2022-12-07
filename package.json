@@ -29,7 +29,7 @@
     "test:docs": "npm run typecheck:docs && npm run lint:docs",
     "build:dts": "tsc && rimraf temp",
     "build": "rollup --config .config/rollup.config.js",
-    "release": "npm run build && esno scripts/release",
+    "release": "npm run build:dts && npm run build && esno scripts/release",
     "storybook": "start-storybook -p 7534 -c .config/.storybook"
   },
   "repository": {

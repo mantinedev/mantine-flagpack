@@ -61,7 +61,6 @@ export const KYFlag = createFlag(
             <path
               fill="#FFF"
               stroke="#0B50A0"
-              strokeLinejoin="square"
               strokeWidth=".1"
               d="M7.86.05v3.672c0 1.608-.425 2.846-.991 3.778C5.79 9.278 4.197 9.95 4.1 9.95c-.092 0-1.815-.673-2.98-2.46C.513 6.559.058 5.324.058 3.722V.05H7.86z"
             />
