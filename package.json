@@ -13,7 +13,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "generate:components": "esno scripts/generate-components && npm run prettier:write && eslint src/flags --fix",
+    "generate:components": "esno scripts/generate-components && eslint src/flags --fix && npm run prettier:write",
     "generate:svg": "esno scripts/generate-svg",
     "docgen": "esno scripts/docgen/docgen",
     "nojekyll": "esno scripts/nojekyll",
@@ -34,6 +34,9 @@
     "build:dts": "tsc && rimraf temp",
     "build": "rollup --config .config/rollup.config.js",
     "release": "npm run build:dts && npm run build && esno scripts/release",
+    "release:patch": "npm run release patch",
+    "release:minor": "npm run release minor",
+    "release:major": "npm run release major",
     "storybook": "start-storybook -p 7534 -c .config/.storybook"
   },
   "repository": {

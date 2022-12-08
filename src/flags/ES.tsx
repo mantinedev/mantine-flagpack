@@ -22,7 +22,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 24">
         <mask
-          id="mantine-huvf92jkv"
+          id="mantine-tst7zhcvv"
           style={{ maskType: 'alpha' }}
           width="32"
           height="24"
@@ -32,10 +32,10 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
         >
           <path fill="#fff" d="M0 0h32v24H0z" />
         </mask>
-        <g mask="url(#mantine-huvf92jkv)">
+        <g mask="url(#mantine-tst7zhcvv)">
           <path fill="#FFB400" fillRule="evenodd" d="M0 0v24h32V0H0z" clipRule="evenodd" />
           <mask
-            id="mantine-a5dw3jypg"
+            id="mantine-ipww9slmc"
             style={{ maskType: 'alpha' }}
             width="32"
             height="24"
@@ -45,7 +45,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
           >
             <path fill="#fff" fillRule="evenodd" d="M0 0v24h32V0H0z" clipRule="evenodd" />
           </mask>
-          <g mask="url(#mantine-a5dw3jypg)">
+          <g mask="url(#mantine-ipww9slmc)">
             <path
               fill="#C51918"
               fillRule="evenodd"
@@ -72,7 +72,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
               clipRule="evenodd"
             />
             <mask
-              id="mantine-vt6lww4he"
+              id="mantine-gir2lddvm"
               style={{ maskType: 'alpha' }}
               width="3"
               height="2"
@@ -87,7 +87,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
                 clipRule="evenodd"
               />
             </mask>
-            <g fill="#fff" mask="url(#mantine-vt6lww4he)">
+            <g fill="#fff" mask="url(#mantine-gir2lddvm)">
               <path d="M4.542 17.712l-.044-.107c.181-.081.364-.122.546-.122.118 0 .18.017.284.063a.49.49 0 00.24.054.49.49 0 00.24-.054.593.593 0 01.285-.063c.182 0 .364.04.546.122l-.044.107a1.227 1.227 0 00-.502-.112.49.49 0 00-.24.054.593.593 0 01-.285.063.593.593 0 01-.284-.063.49.49 0 00-.24-.054c-.167 0-.334.037-.502.112zM4.542 17.376l-.044-.107c.181-.081.364-.122.546-.122.118 0 .18.017.284.063a.49.49 0 00.24.054.49.49 0 00.24-.054.593.593 0 01.285-.063c.182 0 .364.04.546.122l-.044.107a1.227 1.227 0 00-.502-.112.49.49 0 00-.24.054.593.593 0 01-.285.063.593.593 0 01-.284-.063.49.49 0 00-.24-.054c-.167 0-.334.037-.502.112z" />
             </g>
             <path fill="#F1F9FF" d="M15.984 10.272h1.12v5.824h-1.12z" />
@@ -110,7 +110,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
               clipRule="evenodd"
             />
             <mask
-              id="mantine-zls0oh2h1"
+              id="mantine-k57m5thft"
               style={{ maskType: 'alpha' }}
               width="3"
               height="2"
@@ -125,7 +125,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
                 clipRule="evenodd"
               />
             </mask>
-            <g fill="#fff" mask="url(#mantine-zls0oh2h1)">
+            <g fill="#fff" mask="url(#mantine-k57m5thft)">
               <path d="M15.518 17.712l-.044-.107c.181-.081.364-.122.546-.122.118 0 .18.017.284.063a.49.49 0 00.24.054.49.49 0 00.24-.054.593.593 0 01.285-.063c.182 0 .364.04.546.122l-.044.107a1.227 1.227 0 00-.502-.112c-.1 0-.148.013-.24.054a.593.593 0 01-.285.063.593.593 0 01-.284-.063.49.49 0 00-.24-.054c-.167 0-.334.037-.502.112zM15.518 17.376l-.044-.107c.181-.081.364-.122.546-.122.118 0 .18.017.284.063a.49.49 0 00.24.054.49.49 0 00.24-.054.593.593 0 01.285-.063c.182 0 .364.04.546.122l-.044.107a1.227 1.227 0 00-.502-.112c-.1 0-.148.013-.24.054a.593.593 0 01-.285.063.593.593 0 01-.284-.063.49.49 0 00-.24-.054c-.167 0-.334.037-.502.112z" />
             </g>
             <path
@@ -203,7 +203,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
               opacity=".3"
             />
             <mask
-              id="mantine-oba8d9dm9"
+              id="mantine-yq28v0smr"
               style={{ maskType: 'alpha' }}
               width="8"
               height="9"
@@ -218,7 +218,7 @@ export function ESFlag({ radius, sx, ...others }: FlagProps) {
                 clipRule="evenodd"
               />
             </mask>
-            <g mask="url(#mantine-oba8d9dm9)">
+            <g mask="url(#mantine-yq28v0smr)">
               <path fill="#FFC034" d="M7.472 13.296h3.696v4.368H7.472z" />
               <path
                 fill="#AD1619"
