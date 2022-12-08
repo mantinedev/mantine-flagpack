@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtivital/mantine-extension-template.git"
+    "url": "git+https://github.com/rtivital/mantine-flagpack.git"
   },
   "keywords": [
     "mantine",
@@ -50,9 +50,9 @@
   "author": "Vitaly Rtishchev <rtivital@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rtivital/mantine-extension-template/issues"
+    "url": "https://github.com/rtivital/mantine-flagpack/issues"
   },
-  "homepage": "https://github.com/rtivital/mantine-extension-template#readme",
+  "homepage": "https://github.com/rtivital/mantine-flagpack#readme",
   "peerDependencies": {
     "@emotion/react": ">=11.9.0",
     "@mantine/core": ">=5.0.0",

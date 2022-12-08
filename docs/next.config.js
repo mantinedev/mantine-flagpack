@@ -11,7 +11,7 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   reactStrictMode: false,
   swcMinify: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/mantine-extension-template' : undefined,
+  basePath: process.env.NODE_ENV === 'production' ? '/mantine-flagpack' : undefined,
   experimental: {
     externalDir: true,
   },
