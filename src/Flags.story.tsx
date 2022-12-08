@@ -1,11 +1,12 @@
 import React from 'react';
 import { Group, Stack } from '@mantine/core';
+import { keys } from '@mantine/utils';
 import * as flags from './flags';
 
 export default { title: 'Flags' };
 
 export function Usage() {
-  const items = Object.keys(flags).map((flag) => {
+  const items = keys(flags).map((flag) => {
     const Component = flags[flag];
 
     return (
