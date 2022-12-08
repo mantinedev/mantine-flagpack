@@ -148,7 +148,6 @@ export { MPFlag } from './MP';
 export { MQFlag } from './MQ';
 export { MRFlag } from './MR';
 export { MSFlag } from './MS';
-export { MTFlag } from './MT';
 export { MUFlag } from './MU';
 export { MVFlag } from './MV';
 export { MWFlag } from './MW';

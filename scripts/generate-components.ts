@@ -7,7 +7,8 @@ const componentsFolder = path.join(__dirname, '../src/flags');
 
 const replacements = [
   ['xmlns:xlink="http://www.w3.org/1999/xlink"', ''],
-  ['strokeLinejoin="square"', ''],
+  ['stroke-linejoin="square"', ''],
+  ['style="mask-type:alpha"', 'style={{ maskType: "alpha" }}'],
 ];
 
 function replaceSvgCode(svgContent: string) {
@@ -42,7 +43,7 @@ const tsxTemplate = (name: string, svg: string) => `import React from 'react';
 import { Box, packSx } from '@mantine/core';
 import type { FlagProps } from '../types';
 
-export function ${name}Flag({ size = 40, radius, sx, ...others }: FlagProps) {
+export function ${name}Flag({ radius, sx, ...others }: FlagProps) {
   return (
     <Box
       sx={[
@@ -50,7 +51,6 @@ export function ${name}Flag({ size = 40, radius, sx, ...others }: FlagProps) {
           display: 'inline-block',
           overflow: 'hidden',
           lineHeight: 1,
-          width: size,
           borderRadius: theme.fn.radius(radius),
 
           '& svg': {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, packSx } from '@mantine/core';
 import type { FlagProps } from '../types';
 
-export function NPFlag({ size = 40, radius, sx, ...others }: FlagProps) {
+export function NPFlag({ radius, sx, ...others }: FlagProps) {
   return (
     <Box
       sx={[
@@ -10,7 +10,6 @@ export function NPFlag({ size = 40, radius, sx, ...others }: FlagProps) {
           display: 'inline-block',
           overflow: 'hidden',
           lineHeight: 1,
-          width: size,
           borderRadius: theme.fn.radius(radius),
 
           '& svg': {
@@ -21,24 +20,49 @@ export function NPFlag({ size = 40, radius, sx, ...others }: FlagProps) {
       ]}
       {...others}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
-        <mask id="mantine-kg6lsa7rg" fill="#fff">
-          <path fillRule="evenodd" d="M0 0v24h22L12 12h10z" />
-        </mask>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12">
+        <defs>
+          <path id="mantine-0nbbrojkw" d="M0 0v12h11L6 6h5z" />
+          <path id="mantine-zq189caqr" d="M0 0v12h11L6 6h5z" />
+          <path id="mantine-d0a3me0i5" d="M0 0v12h11L6 6h5z" />
+        </defs>
         <g fill="none" fillRule="evenodd">
-          <path fill="#fff" d="M0 0h32v24H0z" />
-          <path stroke="#4857a1" d="M.5.842L20.04 11.5h-9.108l10 12H.5z" />
-          <path
-            fill="#f7fcff"
-            d="M5.83 20.01L4.604 21.6l-.056-2.006-1.926.566 1.134-1.657-1.891-.673 1.89-.674-1.133-1.657 1.926.566.056-2.006 1.226 1.59 1.225-1.59.056 2.006 1.926-.566-1.133 1.657 1.89.674-1.89.673 1.133 1.657-1.926-.566-.056 2.006zM5.8 8.139l-.64.83-.03-1.048-1.005.296.592-.865L3.729 7l.988-.352-.592-.865 1.006.296.03-1.048.639.83.64-.83.03 1.048 1.005-.296-.592.865.988.352-.988.352.592.865-1.006-.296-.03 1.048z"
-            mask="url(#mantine-kg6lsa7rg)"
-          />
-          <path
-            fill="#f9fafa"
-            d="M5.546 7.906C5.537 10.132 6.8 11.32 6.8 11.32c-1.441.235-2.4-1.578-2.4-3.391S5.707 5.016 6.8 4.34c0 0-1.245 1.34-1.254 3.566z"
-            mask="url(#mantine-kg6lsa7rg)"
-            transform="rotate(-90 5.6 7.84)"
-          />
+          <path fill="#FFF" fillRule="nonzero" d="M0 0h16v12H0z" />
+          <path fill="#DD0C39" stroke="#4857A1" d="M.5.842L9.04 5.5H4.931l5 6H.5z" />
+          <g>
+            <mask id="mantine-uhjzbkij3" fill="#fff">
+              <use xlinkHref="#mantine-0nbbrojkw" />
+            </mask>
+            <path
+              fill="#F7FCFF"
+              fillRule="nonzero"
+              d="M2.915 10.005l-.613.795-.028-1.003-.963.283.567-.828-.946-.337.946-.337-.567-.828.963.283.028-1.004.613.796.612-.796.029 1.004.963-.283-.567.828.945.337-.945.337.567.828-.963-.283-.029 1.003z"
+              mask="url(#mantine-uhjzbkij3)"
+            />
+          </g>
+          <g>
+            <mask id="mantine-8vms1bakm" fill="#fff">
+              <use xlinkHref="#mantine-zq189caqr" />
+            </mask>
+            <path
+              fill="#F7FCFF"
+              fillRule="nonzero"
+              d="M2.9 4.07l-.32.415-.015-.524-.503.148.296-.433-.493-.176.493-.176-.296-.433.503.148.015-.524.32.416.32-.416.015.524.503-.148-.296.433.493.176-.493.176.296.433-.503-.148-.015.524z"
+              mask="url(#mantine-8vms1bakm)"
+            />
+          </g>
+          <g>
+            <mask id="mantine-t8vir3wki" fill="#fff">
+              <use xlinkHref="#mantine-d0a3me0i5" />
+            </mask>
+            <path
+              fill="#F9FAFA"
+              fillRule="nonzero"
+              d="M2.773 3.953C2.768 5.066 3.4 5.66 3.4 5.66c-.72.117-1.2-.79-1.2-1.696 0-.907.653-1.456 1.2-1.794 0 0-.623.67-.627 1.783z"
+              mask="url(#mantine-t8vir3wki)"
+              transform="rotate(-90 2.8 3.92)"
+            />
+          </g>
         </g>
       </svg>
     </Box>

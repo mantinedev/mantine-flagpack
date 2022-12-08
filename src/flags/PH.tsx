@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, packSx } from '@mantine/core';
 import type { FlagProps } from '../types';
 
-export function PHFlag({ size = 40, radius, sx, ...others }: FlagProps) {
+export function PHFlag({ radius, sx, ...others }: FlagProps) {
   return (
     <Box
       sx={[
@@ -10,7 +10,6 @@ export function PHFlag({ size = 40, radius, sx, ...others }: FlagProps) {
           display: 'inline-block',
           overflow: 'hidden',
           lineHeight: 1,
-          width: size,
           borderRadius: theme.fn.radius(radius),
 
           '& svg': {
