@@ -1,1 +1,1 @@
-export { testDemo } from './testDemo';
+export { usage } from './usageDemo';

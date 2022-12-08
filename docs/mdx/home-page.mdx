@@ -3,22 +3,32 @@ import * as Demos from '../demos';
 
 ## Installation
 
-With yarn:
-
 ```bash
-yarn add mantine-extension-template @mantine/core @mantine/hooks
+yarn add mantine-flagpack @mantine/core @mantine/hooks
 ```
 
-With npm:
-
 ```bash
-npm install mantine-extension-template @mantine/core @mantine/hooks
+npm install mantine-flagpack @mantine/core @mantine/hooks
 ```
+
+## Usage
+
+All flags images are based on [flagpack](https://flagpack.xyz/). Unlike [react-flagpack](https://www.npmjs.com/package/react-flagpack)
+package `mantine-flagpack` provides tree shakable cjs and ems bundles (unused flags will not be included in the bundle).
+Add components exported from the package also support [Mantine style props](https://mantine.dev/styles/style-props/).
+Some flag components have huge size (up to 20kb) and it is not recommended to import all flags in your application
+– import only flags that you need:
+
+```tsx
+// Bad – you will have huge bundle size
+import * as Flags from 'mantine-flagpack';
+
+// Good – unused flags are removed from the production bundle
+import { ESFlag, RUFlag } from 'mantine-flagpack';
+```
+
+<Demo data={Demos.usage} />
 
 ## All flags
 
 <FlagsList />
-
-## Regular demo
-
-<Demo data={Demos.testDemo} />
