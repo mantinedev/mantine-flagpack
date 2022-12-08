@@ -1,6 +1,5 @@
 import React from 'react';
 import { MantineDemo } from '@mantine/ds';
-import { TestComponent } from '@/extension';
 
 const code = `
 import { TestComponent } from 'mantine-extension-template';
@@ -19,7 +18,7 @@ function Demo() {
   return (
     <div>
       <div>Test component Demo:</div>
-      <TestComponent color="orange">Test component</TestComponent>
+      Test demo
     </div>
   );
 }
