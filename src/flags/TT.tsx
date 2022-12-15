@@ -22,7 +22,7 @@ export function TTFlag({ radius, sx, ...others }: FlagProps) {
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 24">
         <mask
-          id="mantine-a3avfhuf7"
+          id="mantine-gtb5bl341"
           style={{ maskType: 'alpha' }}
           width="32"
           height="24"
@@ -32,10 +32,10 @@ export function TTFlag({ radius, sx, ...others }: FlagProps) {
         >
           <path fill="#fff" d="M0 0h32v24H0z" />
         </mask>
-        <g mask="url(#mantine-a3avfhuf7)">
+        <g mask="url(#mantine-gtb5bl341)">
           <path fill="#E31D1C" fillRule="evenodd" d="M0 0v24h32V0H0z" clipRule="evenodd" />
           <mask
-            id="mantine-1ywqt0zxw"
+            id="mantine-977qj65ck"
             style={{ maskType: 'alpha' }}
             width="32"
             height="24"
@@ -45,7 +45,7 @@ export function TTFlag({ radius, sx, ...others }: FlagProps) {
           >
             <path fill="#fff" fillRule="evenodd" d="M0 0v24h32V0H0z" clipRule="evenodd" />
           </mask>
-          <g mask="url(#mantine-1ywqt0zxw)">
+          <g mask="url(#mantine-977qj65ck)">
             <path
               fill="#272727"
               stroke="#F7FCFF"
