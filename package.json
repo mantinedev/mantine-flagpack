@@ -1,6 +1,6 @@
 {
   "name": "mantine-flagpack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template for Mantine extensions",
   "types": "./declarations/index.d.ts",
   "main": "./dist/cjs/index.js",
