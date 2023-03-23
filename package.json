@@ -7,8 +7,14 @@
   "module": "./dist/esm/index.js",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": {
+        "types": "./dist/cjs/declarations/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "default": {
+        "types": "./dist/esm/declarations/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
     }
   },
   "sideEffects": false,
