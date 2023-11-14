@@ -1,0 +1,11 @@
+.flag {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  border-radius: var(--flag-radius, var(--mantine-radius-default));
+  width: var(--flag-size, 100%);
+
+  & svg {
+    display: block;
+  }
+}
