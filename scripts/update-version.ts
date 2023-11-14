@@ -1,11 +1,14 @@
-import fs from 'fs-extra';
 import path from 'node:path';
-import pkg from '../package.json';
-import { getNextVersion } from './get-next-version';
+import fs from 'fs-extra';
 
-export function updateVersion(config: { type: string; stage?: string }) {
-  const nextVersion = getNextVersion(pkg.version, config);
-  pkg.version = nextVersion;
-  fs.writeJsonSync(path.join(__dirname, '../package.json'), pkg, { spaces: 2 });
-  return pkg;
+export async function updateVersion(version: string) {
+  const packageJsonPath = path.join(process.cwd(), 'package/package.json');
+  const originalPackageJson = await fs.readJson(packageJsonPath);
+
+  const updatedPackageJson = { ...originalPackageJson };
+  updatedPackageJson.version = version;
+
+  await fs.writeJson(packageJsonPath, updatedPackageJson, { spaces: 2 });
+
+  return () => fs.writeJson(packageJsonPath, originalPackageJson, { spaces: 2 });
 }

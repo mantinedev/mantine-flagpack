@@ -1,78 +1,89 @@
 import React from 'react';
-import { Table, Text, useMantineTheme } from '@mantine/core';
-import data from '../../docgen.json';
+import { Table, Text, Highlight } from '@mantine/core';
+import { TableInlineCode } from '../TableInlineCode';
+import { TableError } from '../TableError';
 
-const PROPS_DATA = data as Record<string, any>;
+export interface DocgenProp {
+  defaultValue: {
+    value: string;
+  };
+  description: string;
+  name: string;
+  required: boolean;
+  type: {
+    name: string;
+  };
+}
+
+export interface Docgen {
+  description: string;
+  displayName: string;
+  props: Record<string, DocgenProp>;
+}
 
 interface PropsTableProps {
   component: string;
+  query: string;
+  data: any;
 }
 
-export function PropsTable({ component }: PropsTableProps) {
-  const theme = useMantineTheme();
-
-  if (!PROPS_DATA[component]) {
-    return null;
+export function PropsTable({ component, query, data }: PropsTableProps) {
+  if (!data[component]) {
+    return <TableError errorOf="props" />;
   }
 
-  const rows = Object.keys(PROPS_DATA[component].props).map((propKey) => {
-    const prop = PROPS_DATA[component].props[propKey];
+  const rows = Object.keys(data[component].props)
+    .filter((propKey) =>
+      data[component].props[propKey].name.toLowerCase().includes(query.toLowerCase().trim())
+    )
+    .map((propKey) => {
+      const prop = data[component].props[propKey];
 
-    return (
-      <tr key={propKey}>
-        <td style={{ whiteSpace: 'nowrap' }}>
-          <Text component="span" size="sm">
-            {prop.name}
-          </Text>
+      return (
+        <Table.Tr key={propKey}>
+          <Table.Td style={{ whiteSpace: 'nowrap' }}>
+            <Highlight highlight={query} component="span" fz="sm">
+              {prop.name}
+            </Highlight>
 
-          {prop.required && (
-            <Text component="sup" color="red" size="xs">
-              {' '}
-              *
-            </Text>
-          )}
-        </td>
-        <td style={{ verticalAlign: 'middle' }}>
-          <Text
-            color={theme.colorScheme === 'dark' ? 'red' : 'indigo'}
-            size="xs"
-            weight={500}
-            sx={{ fontFamily: 'Menlo, Monaco, Lucida Console, monospace' }}
-          >
-            {prop.type.name}
-          </Text>
-        </td>
-        <td>
-          <Text component="span" size="sm">
-            {prop.description}
-          </Text>
-        </td>
-      </tr>
-    );
-  });
+            {prop.required && (
+              <Text component="sup" c="red" fz="xs">
+                {' '}
+                *
+              </Text>
+            )}
+          </Table.Td>
+
+          <Table.Td>
+            <TableInlineCode>{prop.type.name}</TableInlineCode>
+          </Table.Td>
+          <Table.Td>
+            <Text fz="sm" dangerouslySetInnerHTML={{ __html: prop.description }} />
+          </Table.Td>
+        </Table.Tr>
+      );
+    });
 
   if (rows.length === 0) {
     return (
-      <Text color="dimmed" mb="xl">
+      <Text c="dimmed" mb="xl" fz="sm">
         Nothing found
       </Text>
     );
   }
 
   return (
-    <div style={{ overflowX: 'auto' }}>
-      <div style={{ minWidth: 500 }}>
-        <Table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </Table>
-      </div>
-    </div>
+    <Table.ScrollContainer minWidth={800}>
+      <Table layout="fixed">
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th w={210}>Name</Table.Th>
+            <Table.Th w={310}>Type</Table.Th>
+            <Table.Th>Description</Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{rows}</Table.Tbody>
+      </Table>
+    </Table.ScrollContainer>
   );
 }

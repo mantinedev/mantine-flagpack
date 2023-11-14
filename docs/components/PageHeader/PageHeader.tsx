@@ -1,47 +1,59 @@
 import React from 'react';
-import { Container, Title, Text } from '@mantine/core';
-import { NpmIcon, GithubIcon } from '@mantine/ds';
-import { IconLicense, IconCode } from '@tabler/icons';
-import SETTINGS from '../../../settings';
-import { LinkItem } from './LinkItem/LinkItem';
-import useStyles from './PageHeader.styles';
+import { Title, Container, Text } from '@mantine/core';
+import { GithubIcon, NpmIcon } from '@mantine/ds';
+import { IconLicense, IconUserCode, IconEdit } from '@tabler/icons-react';
+import type { PackageData } from '../../data';
+import { PageHeaderLink } from './PageHeaderLink/PageHeaderLink';
+import classes from './PageHeader.module.css';
 
-export function PageHeader() {
-  const { classes } = useStyles();
+interface PageHeaderProps {
+  data: PackageData;
+}
+
+export function PageHeader({ data }: PageHeaderProps) {
   return (
-    <div className={classes.root}>
-      <Container>
-        <Title mb="sm" className={classes.title}>
-          {SETTINGS.packageName}
-        </Title>
-        <Text color="dimmed" mb="xl" className={classes.description}>
-          {SETTINGS.packageDescription}
-        </Text>
+    <header className={classes.root}>
+      <Container size="lg">
+        <Title className={classes.title}>{data.packageName}</Title>
+        <Text className={classes.description}>{data.packageDescription}</Text>
 
-        <LinkItem label="Source" icon={<GithubIcon size={14} />} link={SETTINGS.repositoryUrl}>
-          View source code
-        </LinkItem>
-
-        <LinkItem label="Package" icon={<NpmIcon size={14} />} link={SETTINGS.npmUrl}>
-          {SETTINGS.packageName}
-        </LinkItem>
-
-        <LinkItem
-          label="Contribute"
-          icon={<IconCode size={14} stroke={1.5} />}
-          link={SETTINGS.contributeLink}
-        >
-          Contributing guidelines
-        </LinkItem>
-
-        <LinkItem
-          label="License"
-          icon={<IconLicense size={14} stroke={1.5} />}
-          link={SETTINGS.licenseLink}
-        >
-          {SETTINGS.license}
-        </LinkItem>
+        <div className={classes.links}>
+          <PageHeaderLink label="Source" icon={<GithubIcon size={16} />} link={data.repositoryUrl}>
+            View source code
+          </PageHeaderLink>
+          <PageHeaderLink
+            label="Package"
+            icon={<NpmIcon size={16} />}
+            link={`https://npmjs.com/package/${data.packageName}`}
+          >
+            {data.packageName}
+          </PageHeaderLink>
+          <PageHeaderLink
+            label="Docs"
+            icon={<IconEdit size={18} stroke={1.5} />}
+            link={data.mdxFileUrl}
+          >
+            Edit this page
+          </PageHeaderLink>
+          <PageHeaderLink
+            label="Built by"
+            icon={<IconUserCode size={18} stroke={1.5} />}
+            link={`https://github.com/${data.author.githubUsername}`}
+          >
+            {data.author.name}{' '}
+            <Text span c="dimmed" inherit>
+              (@{data.author.githubUsername})
+            </Text>
+          </PageHeaderLink>
+          <PageHeaderLink
+            label="License"
+            icon={<IconLicense size={18} stroke={1.5} />}
+            link={data.licenseUrl}
+          >
+            MIT
+          </PageHeaderLink>
+        </div>
       </Container>
-    </div>
+    </header>
   );
 }

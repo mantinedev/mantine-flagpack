@@ -1,0 +1,7 @@
+.root {
+  background-color: var(--test-component-color);
+  color: var(--mantine-color-white);
+  padding: var(--mantine-spacing-md);
+  border-radius: var(--mantine-radius-md);
+  font-weight: 500;
+}

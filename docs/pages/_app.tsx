@@ -1,59 +1,25 @@
-import React, { useState } from 'react';
-import { AppProps } from 'next/app';
+import '@mantine/core/styles.css';
+import '@mantine/code-highlight/styles.css';
+import '@mantine/ds/styles.css';
+import 'mantine-extension-template/styles.css';
+import React from 'react';
 import Head from 'next/head';
-import {
-  MantineProvider,
-  ColorScheme,
-  ColorSchemeProvider,
-  createEmotionCache,
-} from '@mantine/core';
-import { useToggle } from '@mantine/hooks';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { Shell } from '../components/Shell/Shell';
-import { MdxProvider } from '../components/MdxProvider/MdxProvider';
-import { DirectionProvider } from '../components/DirectionProvider/DirectionProvider';
-import SETTINGS from '../../settings';
+import { MantineProvider } from '@mantine/core';
+import { theme } from '../theme';
+import favicon from '../assets/favicon.svg';
 
-const rtlCache = createEmotionCache({
-  key: 'mantine-rtl',
-  prepend: true,
-  stylisPlugins: [rtlPlugin],
-});
-
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
-  const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
-  const [dir, toggleDirection] = useToggle<'ltr' | 'rtl'>(['ltr', 'rtl']);
-
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
-    setColorScheme(nextColorScheme);
-  };
-
+export default function App({ Component, pageProps }: any) {
   return (
-    <DirectionProvider dir={dir} toggleDirection={() => toggleDirection()}>
+    <MantineProvider theme={theme}>
       <Head>
-        <title>{SETTINGS.pageTitle}</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="icon" href="https://mantine.dev/favicon.svg" />
+        <title>Mantine Template</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
+        />
+        <link rel="shortcut icon" href={favicon.src} />
       </Head>
-
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider
-          theme={{ colorScheme, dir }}
-          withGlobalStyles
-          withNormalizeCSS
-          emotionCache={dir === 'rtl' ? rtlCache : undefined}
-        >
-          <div dir={dir}>
-            <Shell>
-              <MdxProvider>
-                <Component {...pageProps} />
-              </MdxProvider>
-            </Shell>
-          </div>
-        </MantineProvider>
-      </ColorSchemeProvider>
-    </DirectionProvider>
+      <Component {...pageProps} />
+    </MantineProvider>
   );
 }
