@@ -1,9 +1,9 @@
 import fs from 'fs-extra';
-import path from 'path';
+import path from 'node:path';
 import { randomId } from '@mantine/hooks';
 import optimize from 'svgo-browser/lib/optimize';
 
-const imagesFolder = path.join(__dirname, '../flags');
+const imagesFolder = path.join(process.cwd(), 'flags');
 
 function replaceId(id: string, svgContent: string): string {
   const random = randomId();

@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs-extra';
 import { randomId } from '@mantine/hooks';
 
-const imagesFolder = path.join(__dirname, '../flags');
-const componentsFolder = path.join(__dirname, '../src/flags');
+const imagesFolder = path.join(process.cwd(), 'flags');
+const componentsFolder = path.join(process.cwd(), 'package/src/flags');
 
 const replacements = [
   ['xmlns:xlink="http://www.w3.org/1999/xlink"', ''],
@@ -39,26 +39,17 @@ const svgFlags = fs
     replaceIds(replaceSvgCode(fs.readFileSync(path.join(imagesFolder, flag)).toString('utf-8'))),
   ]);
 
-const tsxTemplate = (name: string, svg: string) => `import React from 'react';
-import { Box, packSx } from '@mantine/core';
+const tsxTemplate = (name: string, svg: string) => `import cx from 'clsx';
+import React from 'react';
+import { Box, getRadius, rem } from '@mantine/core';
 import type { FlagProps } from '../types';
+import classes from '../flagpack.module.css';
 
-export function ${name}Flag({ radius, sx, ...others }: FlagProps) {
+export function ${name}Flag({ radius, className, size, ...others }: FlagProps) {
   return (
     <Box
-      sx={[
-        (theme) => ({
-          display: 'inline-block',
-          overflow: 'hidden',
-          lineHeight: 1,
-          borderRadius: theme.fn.radius(radius),
-
-          '& svg': {
-            display: 'block',
-          },
-        }),
-        ...packSx(sx),
-      ]}
+      className={cx(classes.flag, className)}
+      __vars={{ '--flag-radius': getRadius(radius), '--flag-size': rem(size) }}
       {...others}
     >
       ${svg}

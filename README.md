@@ -9,17 +9,17 @@
 ## Installation
 
 ```bash
-yarn add mantine-flagpack @mantine/core @mantine/hooks
+yarn add mantine-flagpack
 ```
 
 ```bash
-npm install mantine-flagpack @mantine/core @mantine/hooks
+npm install mantine-flagpack
 ```
 
 ## Usage
 
 ```tsx
-import { Group } from '@mantine/core';
+import { ESFlag } from 'mantine-flagpack';
 
 function Demo() {
   return <ESFlag w={100} radius="md" />;

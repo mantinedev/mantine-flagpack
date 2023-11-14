@@ -1,19 +1,19 @@
 {
-  "include": ["src"],
+  "include": ["package", "scripts", "@types"],
   "compilerOptions": {
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "target": "ES2015",
-    "lib": ["DOM", "ES2021"],
+    "lib": ["DOM", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "Node",
     "jsx": "react",
     "skipLibCheck": true,
     "outDir": "temp",
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "resolveJsonModule": true,
-    "declarationDir": "declarations",
+    "declarationDir": "package/dist/types",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "importHelpers": true
+    "esModuleInterop": true
   }
 }

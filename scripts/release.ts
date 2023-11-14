@@ -1,52 +1,115 @@
 import path from 'node:path';
-import simpleGit from 'simple-git';
-import signale from 'signale';
-import { argv } from 'yargs';
-import { execa } from 'execa';
 import chalk from 'chalk';
+import fs from 'fs-extra';
+import yargs from 'yargs';
 import open from 'open';
 import githubRelease from 'new-github-release-url';
+import SimpleGit from 'simple-git';
+import { hideBin } from 'yargs/helpers';
+import { execa } from 'execa';
+import signale from 'signale';
+import { getNextVersion, VersionStage, VersionIncrement } from 'version-next';
+import { run } from './run';
 import { updateVersion } from './update-version';
-import settings from '../settings';
 
-const git = simpleGit();
+function getRepositoryInfo(gitUrl: string) {
+  const [user, repo] = gitUrl.replace('git+https://github.com/', '').replace('.git', '').split('/');
+  return { user, repo };
+}
 
-const _argv = argv as any;
-const type = _argv._[0];
-const { stage } = _argv;
+const packageJsonPath = path.join(process.cwd(), 'package/package.json');
+const packageJson = fs.readJsonSync(packageJsonPath);
+const { argv } = yargs(hideBin(process.argv)) as any;
+const git = SimpleGit();
+
+const versionIncrement: VersionIncrement = argv._[0] || 'patch';
+const versionStage: VersionStage | undefined = argv.stage;
 
 async function release() {
-  const status = await git.status();
+  await run(git.pull(), {
+    info: 'Pulling the latest changes from the remote repository',
+    success: 'The latest changes have been pulled from the remote repository',
+    error: 'Failed to pull the latest changes from the remote repository',
+  });
 
-  if (status.files.length !== 0) {
-    signale.error('There are uncommitted files left');
+  const gitStatus = await git.status();
+
+  if (gitStatus.files.length > 0) {
+    signale.error(
+      'Working directory is not clean, commit all changes before publishing the package.'
+    );
+
     process.exit(1);
   }
 
-  const { version, name } = updateVersion({ type, stage });
-  signale.info(`Releasing package, next version is ${chalk.cyan(version)}`);
+  const nextVersion = getNextVersion(packageJson.version, {
+    type: versionIncrement,
+    stage: versionStage,
+  });
 
-  try {
-    const baseParams = ['publish', path.join(__dirname, '..')];
-    const tagParams = stage ? ['--tag', 'next'] : [];
-    await execa('yarn', [...baseParams, ...tagParams]);
-    signale.success(`Package ${chalk.cyan(`${name}@${version}`)} was published to npm`);
-  } catch (error) {
-    signale.error(`Failed to publish package ${chalk.red(name)}`);
-    process.stdout.write(chalk.red`${error.message}\n`);
-    process.exit(1);
-  }
+  signale.info(
+    `Publishing next ${chalk.cyan(versionIncrement)} version of ${chalk.cyan(
+      packageJson.name
+    )} to npm.`
+  );
 
-  await git.add(path.join(__dirname, '../package.json'));
-  await git.commit(`[release] Version: ${version}`);
+  signale.info(
+    `Current version: ${chalk.cyan(packageJson.version)}, next version: ${chalk.cyan(nextVersion)}`
+  );
+
+  await run(execa('yarn'), {
+    info: 'Installing fresh dependencies',
+    success: 'Fresh dependencies have been installed',
+    error: 'Failed to install fresh dependencies',
+  });
+
+  await run(execa('yarn', ['run', 'clean']), {
+    info: 'Removing dist directory',
+    success: 'dist directory has been removed',
+    error: 'Failed to remove dist directory',
+  });
+
+  await run(execa('yarn', ['run', 'build']), {
+    info: 'Building the package',
+    success: 'The package has been built',
+    error: 'Failed to build the package',
+  });
+
+  await fs.copyFile(
+    path.join(process.cwd(), 'README.md'),
+    path.join(process.cwd(), 'package/README.md')
+  );
+
+  await fs.copyFile(
+    path.join(process.cwd(), 'LICENSE'),
+    path.join(process.cwd(), 'package/LICENSE')
+  );
+
+  const revertVersion = await updateVersion(nextVersion);
+
+  await run(
+    execa(
+      'yarn',
+      ['npm', 'publish', '--access', 'public', '--tag', versionStage ? 'next' : 'latest'],
+      { cwd: path.join(process.cwd(), 'package') }
+    ),
+    {
+      info: 'Publishing the package to npm',
+      success: 'The package has been published to npm',
+      error: 'Failed to publish the package to npm',
+    },
+    revertVersion
+  );
+
+  await git.add([packageJsonPath]);
+  await git.commit(`Release ${nextVersion}`);
   await git.push();
 
   open(
     githubRelease({
-      user: settings.githubUsername,
-      repo: settings.githubRepo,
-      tag: version,
-      title: version,
+      ...getRepositoryInfo(packageJson.repository.url),
+      tag: nextVersion,
+      title: nextVersion,
     })
   );
 }

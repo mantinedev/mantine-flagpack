@@ -1,1 +1,1 @@
-export { usage } from './usageDemo';
+export { usage } from './Flagpack.demo.usage';

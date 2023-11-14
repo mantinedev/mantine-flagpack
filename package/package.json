@@ -1,0 +1,47 @@
+{
+  "name": "mantine-flagpack",
+  "description": "4x3 flag icons pack for Mantine",
+  "packageManager": "yarn@4.0.1",
+  "version": "4.0.0",
+  "workspaces": [
+    "docs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mantinedev/mantine-flagpack.git"
+  },
+  "keywords": [
+    "mantine",
+    "flags"
+  ],
+  "author": "Vitaly Rtishchev <rtivital@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mantinedev/mantine-flagpack/issues"
+  },
+  "homepage": "https://github.com/mantinedev/mantine-flagpack#readme",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/esm/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./styles.layer.css": "./dist/styles.layer.css"
+  },
+  "peerDependencies": {
+    "@mantine/core": ">=7.0.0",
+    "@mantine/hooks": ">=7.0.0",
+    "clsx": "2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
