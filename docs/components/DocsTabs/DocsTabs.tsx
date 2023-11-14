@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tabs } from '@mantine/core';
+import { Container, Tabs } from '@mantine/core';
 import { useRouter } from 'next/router';
 import { PropsTablesList } from '../PropsTable';
 import { TableOfContents } from '../TableOfContents';
@@ -33,7 +33,7 @@ export function DocsTabs({
   }, []);
 
   if (!hasProps && !hasStyles) {
-    return null;
+    return <Container size="lg">{children}</Container>;
   }
 
   return (

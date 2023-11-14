@@ -1,2 +1,1 @@
-export { usage } from './TestComponent.demo.usage';
-export { configurator } from './TestComponent.demo.configurator';
+export { usage } from './Flagpack.demo.usage';

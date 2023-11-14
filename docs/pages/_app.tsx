@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
 import '@mantine/code-highlight/styles.css';
 import '@mantine/ds/styles.css';
-import 'mantine-extension-template/styles.css';
+import 'mantine-flagpack/styles.css';
 import React from 'react';
 import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';

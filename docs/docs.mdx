@@ -1,18 +1,37 @@
 import { InstallScript } from './components/InstallScript/InstallScript';
+import { FlagsList } from './components/FlagsList/FlagsList';
 import * as demos from './demos';
 
 ## Installation
 
-<InstallScript packages="mantine-extension-template" />
+Install package:
 
-## Regular demo
+<InstallScript packages="mantine-flagpack" />
+
+Then import styles at the root of your application:
+
+```tsx
+import 'mantine-flagpack/styles.css';
+```
+
+## Usage
+
+All flags images are based on [flagpack](https://flagpack.xyz/). Unlike [react-flagpack](https://www.npmjs.com/package/react-flagpack)
+package `mantine-flagpack` provides tree shakable cjs and ems bundles (unused flags will not be included in the bundle).
+Add components exported from the package also support [Mantine style props](https://mantine.dev/styles/style-props/).
+Some flag components have huge size (up to 20kb) and it is not recommended to import all flags in your application
+– import only flags that you need:
+
+```tsx
+// Bad – you will have huge bundle size
+import * as Flags from 'mantine-flagpack';
+
+// Good – unused flags are removed from the production bundle
+import { ESFlag, RUFlag } from 'mantine-flagpack';
+```
 
 <Demo data={demos.usage} />
 
-## Configurator demo
+## All flags
 
-<Demo data={demos.configurator} />
-
-## Other subtitle
-
-Other content
+<FlagsList />

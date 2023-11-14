@@ -1,5 +1,5 @@
 {
-  "name": "mantine-minimal-next-template",
+  "name": "mantine-flagpack-docs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,7 +17,8 @@
     "@next/mdx": "^14.0.0",
     "@tabler/icons-react": "^2.40.0",
     "@types/mdx": "^2.0.9",
-    "mantine-extension-template": "link:../package",
+    "country-data": "^0.0.31",
+    "mantine-flagpack": "link:../package",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -25,6 +26,7 @@
     "type-fest": "^4.6.0"
   },
   "devDependencies": {
+    "@types/country-data": "^0",
     "@types/node": "20.2.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
