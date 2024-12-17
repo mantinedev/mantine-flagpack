@@ -1,7 +1,7 @@
 {
   "name": "m-90d2bb8",
   "description": "This package.json is not published to npm, modify the file in package/package.json",
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.5.3",
   "version": "0.1.1",
   "workspaces": [
     "docs",
